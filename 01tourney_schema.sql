@@ -48,7 +48,6 @@ nationality TEXT
 
 CREATE TABLE Playerstats(
 PlayerStats_ID SERIAL PRIMARY KEY,
-goal_score INT,
 player_id INT REFERENCES Players(Player_ID),
 matchResult_id INT REFERENCES Match_results(MatchResult_ID),
 goals_scored INT,
