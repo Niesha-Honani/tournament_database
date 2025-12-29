@@ -58,39 +58,30 @@
     - nationality
 
     ##3. Key Business Rules & How They Are Enforced
-    ### Business Rule	Enforcement Mechanism
-    - Tournament has multiple rounds	rounds.tournament_id → tournament
-    - Round has multiple matches	matches.round_id → rounds
-    - Team must be registered to play in tournament	Composite FK (tournament_id, team_id)
-    - Player can only be on one team per tournament	UNIQUE (tourney_id, player_id)
-    - Player stats tracked per tournament	UNIQUE (player_id, tournament_id)
-    - Player stats tracked per match	Composite PK (match_id, player_id)
-    - One result per match	matchresults.match_id UNIQUE
-    - Match can be ongoing or completed	matches.is_complete BOOLEAN
+    ### Business Rule : Enforcement Mechanism
+    - Tournament has multiple rounds |	rounds.tournament_id → tournament
+    - Round has multiple matches | matches.round_id → rounds
+    - Team must be registered to play in tournament | Composite FK (tournament_id, team_id)
+    - Player can only be on one team per tournament	| UNIQUE (tourney_id, player_id)
+    - Player stats tracked per tournament | UNIQUE (player_id, tournament_id)
+    - Player stats tracked per match | Composite PK (match_id, player_id)
+    - One result per match	matchresults.match_id | UNIQUE
+    - Match can be ongoing or completed	matches.is_complete | BOOLEAN
+
     ##4. Cardinality (Relationships)
     ### One-to-Many
-
-    - Tournament → Rounds
-
-    - Tournament → Matches
-
-    - Round → Matches
-
-    - Team → Players (via teamroster)
-
-    - Match → PlayerMatchStats
-
+        - Tournament → Rounds
+        - Tournament → Matches
+        - Round → Matches
+        - Team → Players (via teamroster)
+        - Match → PlayerMatchStats
+     
     ### Many-to-Many (via bridge tables)
-
-    - Tournament ↔ Teams (tourney_teams)
-
-    - Tournament ↔ Players (teamroster)
-
-    - Match ↔ Players (playermatchstats)
-
+        - Tournament ↔ Teams (tourney_teams)
+        - Tournament ↔ Players (teamroster)
+        - Match ↔ Players (playermatchstats)
     ### One-to-One
-
-    - Match ↔ MatchResults
+        - Match ↔ MatchResults
 
     ##5. Normalization Strategy
 
@@ -98,29 +89,28 @@
 
     ### 1NF (Atomic Values)
 
-    - No multi-valued columns
-
-    - All fields store single values
+        - No multi-valued columns
+        - All fields store single values
 
     ### 2NF (No Partial Dependencies)
 
-    - Composite keys (e.g., playermatchstats) contain no partial dependencies
+        - Composite keys (e.g., playermatchstats) contain no partial dependencies
 
     ### 3NF (No Transitive Dependencies)
 
-    - Lookup tables remove repeated values:
+        - Lookup tables remove repeated values:
 
-        - country
+            - country
 
-        - nationality
+            - nationality
 
-        - position
+            - position
 
-        - coach
+            - coach
 
-        - type
+            - type
 
-        - location
+            - location
 
     ## 6. Indexing & Performance
 
