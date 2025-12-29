@@ -13,8 +13,9 @@ UNION ALL SELECT 'tourney_team', COUNT(*) FROM tourney_team
 UNION ALL SELECT 'playerstats', COUNT(*) FROM playerstats; -- PlayerStats =20;
 
 -- What relationships exist?
--- Foreign Keys indicates relationship (information schema metadata)
 -- Tables about tables (table_constraints, key_column_usage, constraint+column_usage)
+-- Foreign Keys indicates relationship (information schema metadata)
+
 SELECT
   tc.table_name AS child_table,
   kcu.column_name AS child_column,
@@ -29,7 +30,16 @@ JOIN information_schema.constraint_column_usage ccu
 WHERE tc.constraint_type = 'FOREIGN KEY'
 ORDER BY child_table;
 
--- Parent -> child
+
+--- Unique constraints
+--- Replace <table>::regclass with class you want to check
+
+SELECT
+  conname,
+  pg_get_constraintdef(oid)
+FROM pg_constraint
+WHERE conrelid IN ('rounds'::regclass, 'matches'::regclass)
+ORDER BY conname;
 
 
 -- Validate Player And Player Stats relationship
@@ -44,4 +54,12 @@ SELECT
 FROM Players p
 JOIN Playerstats ps
   ON ps.player_id = p.Player_ID;
+
+
+SELECT mr.*
+FROM matchresults mr
+LEFT JOIN matches m ON m.match_id = mr.match_ID
+WHERE m.match_id IS NULL;
+
+
 
