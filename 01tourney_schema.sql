@@ -75,7 +75,6 @@ CREATE TABLE tourney_teams (
   tourneyTeam_ID SERIAL PRIMARY KEY,
   tourney_id INT REFERENCES tournament(tournament_ID),
   team_id INT REFERENCES teams(team_ID),
-  roster_id INT REFERENCES teamroster(roster_ID),
   UNIQUE(tourney_id, team_id)
 );
 

@@ -127,18 +127,6 @@ INSERT INTO teamroster (team_id, tourney_id, player_id) VALUES
   (4, 1, 11),
   (4, 1, 12);
 
--- OPTIONAL: tie tourney_teams.roster_id to one roster row per team (not required for matches)
--- Here we’ll set it to the first roster row per team in tournament 1.
-UPDATE tourney_teams tt
-SET roster_id = tr.roster_id
-FROM teamroster tr
-WHERE tt.tourney_id = 1
-  AND tt.team_id = tr.team_id
-  AND tr.tourney_id = 1
-  AND tr.player_id IN (
-    SELECT MIN(player_id) FROM teamroster
-    WHERE tourney_id = 1 AND team_id = tr.team_id
-  );
 
 -- =========================================================
 -- 5) ROUNDS
@@ -198,7 +186,7 @@ INSERT INTO playerstats (player_id, tournament_id, goals_scored, yellow_cards, r
   (8, 1, 2, 0, 0), -- Jordan Lee
   (2, 1, 1, 1, 0), -- Casey Garcia
   (3, 1, 0, 0, 0), -- Jamie Smith
-  (4, 1, 0, 1, 0), -- Taylor Nguyen
+  (4, 1, 0, 1, 1), -- Taylor Nguyen
   (11,1, 1, 0, 0), -- Drew Kim
   (7, 1, 0, 1, 0); -- Riley Khan
 

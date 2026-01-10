@@ -47,10 +47,10 @@ ORDER BY conname;
 SELECT
   p.first_name,
   p.last_name,
-  p.position,
+  p.position_id,
   ps.goals_scored,
-  ps.red_card,
-  ps.yellow_card
+  ps.red_cards,
+  ps.yellow_cards
 FROM Players p
 JOIN Playerstats ps
   ON ps.player_id = p.Player_ID;
@@ -59,7 +59,7 @@ JOIN Playerstats ps
 SELECT mr.*
 FROM matchresults mr
 LEFT JOIN matches m ON m.match_id = mr.match_ID
-WHERE m.match_id IS NULL;
+WHERE m.match_id IS NOT NULL;
 
 
 
