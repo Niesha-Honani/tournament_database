@@ -1,5 +1,5 @@
 # Tournament Database — Schema, Requirements, and Design Rationale
-    ##1. Purpose of the Database
+    ## 1. Purpose of the Database
 
     The Tournament Database is designed to model competitive sports tournaments.
     It supports:
@@ -18,8 +18,8 @@
 
     This schema enforces business rules at the database level using keys and constraints.
 
-    ##2. High-Level Entity Overview
-    ###Core Entities
+    ## 2. High-Level Entity Overview
+    ### Core Entities
 
     - Tournament — represents a competition event
 
@@ -33,7 +33,7 @@
 
     - MatchResults — final outcomes of completed matches
 
-    ###Supporting / Relationship Entities
+    ### Supporting / Relationship Entities
 
     - tourney_teams — registers teams into tournaments
 
@@ -43,7 +43,7 @@
 
     - playermatchstats — per-match player performance
 
-    ###Lookup Tables
+    ### Lookup Tables
 
     - location
 
@@ -57,7 +57,7 @@
 
     - nationality
 
-    ##3. Key Business Rules & How They Are Enforced
+    ## 3. Key Business Rules & How They Are Enforced
     ### Business Rule : Enforcement Mechanism
     - Tournament has multiple rounds |	rounds.tournament_id → tournament
     - Round has multiple matches | matches.round_id → rounds
@@ -68,10 +68,10 @@
     - One result per match	matchresults.match_id | UNIQUE
     - Match can be ongoing or completed	matches.is_complete | BOOLEAN
 
-    ##4. Cardinality (Relationships)
+    ## 4. Cardinality (Relationships)
     ### One-to-Many
-        - Tournament → Rounds
-        - Tournament → Matches
+        - Tournament → Rounds (one tournament to many rounds)
+        - Tournament → Matches (one tournament to many matches)
         - Round → Matches
         - Team → Players (via teamroster)
         - Match → PlayerMatchStats

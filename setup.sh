@@ -14,8 +14,8 @@ docker build --no-cache -t $IMAGE .
 
 # Run (NO --rm while debugging so we can see logs even if it exits)
 docker run -d --name $CONTAINER \
-  -e POSTGRES_USER=nieshah \
-  -e POSTGRES_PASSWORD=password \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_DB=$DB \
   -p $PORT:5432 \
   $IMAGE
