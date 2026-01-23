@@ -30,4 +30,4 @@ if ! docker ps --format '{{.Names}}' | grep -q "^${CONTAINER}$"; then
 fi
 
 # Connect (inside container, host is localhost:5432)
-docker exec -it $CONTAINER psql -U nieshah -d $DB
+docker exec -it $CONTAINER psql -U postgres -d $DB
