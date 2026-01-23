@@ -18,4 +18,4 @@ Build as you go - also there are some bugs or things that need to be fixed in th
 
 Complete Reference Guide is here: 
 
-[🏆 Tournament Database — End-to-End Reference Wiki](https://github.com/Niesha-Honani/tournament_database/wiki)
+[🏆 Tournament Database — End-to-End Reference Wiki](https://github.com/Niesha-Honani/tournament_database/wiki/%F0%9F%8F%86-Tournament-Database-%E2%80%94-End%E2%80%90to%E2%80%90End-Reference-Guide)
