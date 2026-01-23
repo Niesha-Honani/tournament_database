@@ -18,4 +18,4 @@ Build as you go - also there are some bugs or things that need to be fixed in th
 
 Complete Reference Guide is here: 
 
-[🏆 Tournament Database — End-to-End Reference Guide](https://www.notion.so/Tournament-Database-End-to-End-Reference-Guide-2f1f93b2f80080bf9188fe3f096eb6f5)
+[🏆 Tournament Database — End-to-End Reference Wiki](https://github.com/Niesha-Honani/tournament_database/wiki)
