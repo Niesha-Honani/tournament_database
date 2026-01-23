@@ -14,7 +14,7 @@ To run sanity_check.sql just run it like a script or like was reviewed inject in
 ## Notes
 Notes of everything databases and Dockerize is in the documentation. Read setup.md 
 
-Build as you go 
+Build as you go - also there are some bugs or things that need to be fixed in this repo but not enough to kill the process
 
 Complete Reference Guide is here: 
 
